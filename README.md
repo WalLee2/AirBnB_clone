@@ -5,12 +5,39 @@ This project replicates the basic functionality of the Air BnB website.
 0. All python files were written with Python-3.4.3
 
 ## Usage:
+Interactive Mode:
 ```
-./console.py
+PROMPT~> ./console.py
 (hbtn) help
 
 Documented Commands (type help <topic>)
 ======================================
+EOF   help   quit
+
+(hbtn)
+(hbtn)
+(hbtn) quit
+PROMPT~>
+```
+Non-Interactive Mode:
+```
+PROMPT~> echo "help" | ./console.py
+(hbnb)
+
+Documented commands (type help <topic>):
+========================================
+EOF  help  quit
+(hbnb) 
+PROMPT~> cat test_help
+help
+PROMPT~> cat test_help | ./console.py
+(hbnb)
+
+Documented commands (type help <topic>):
+========================================
+EOF  help  quit
+(hbnb) 
+PROMPT~> 
 ```
 
 ## Description of Files
