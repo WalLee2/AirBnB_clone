@@ -23,4 +23,3 @@ class Console(cmd.Cmd):
         prompt = Console()
         prompt.prompt = "(hbnb) "
         Console().cmdloop()
->>>>>>> develop
