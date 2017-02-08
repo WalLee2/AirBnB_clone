@@ -1,5 +1,5 @@
 #Holberton School - AirBnB_clone
-This project replicates the basic functionality of the Air BnB website.
+This project replicates the basic functionality of the [Air BnB website](http://www.airbnb.com/).
 
 ## Prerequisites:
 0. All python files were written with Python-3.4.3
@@ -89,5 +89,5 @@ Main Command line user interface
 
 
 ## Authors:
-* **Walton Lee**[Github](https://github.com/WalLee2) || [Linkedin](https://www.linkedin.com/in/walton-lee-443560a6/)
-* **Ian Liu-Johnston**[Github](https://github.com/ianliu-johnston) || [Twitter](https://twitter.com/@concativerse) || [Linkedin](https://www.linkedin.com/in/ian-liu-johnston-32a40a115)
+* **Walton Lee** [Github](https://github.com/WalLee2) || [Linkedin](https://www.linkedin.com/in/walton-lee-443560a6/)
+* **Ian Liu-Johnston** [Github](https://github.com/ianliu-johnston) || [Twitter](https://twitter.com/@concativerse) || [Linkedin](https://www.linkedin.com/in/ian-liu-johnston-32a40a115)
