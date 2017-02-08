@@ -86,7 +86,8 @@ Main Command line user interface
 * [Python Docs: datetime](https://docs.python.org/3.4/library/datetime.html)
 * [Python Docs: Unit test](https://docs.python.org/3.4/library/unittest.html#module-unittest)
 * [Python Tips: args and kwargs](https://pythontips.com/2013/08/04/args-and-kwargs-in-python-explained/)
-
+* [All about cmd](https://pymotw.com/2/cmd/)
+* [Give Python a shell](https://coderwall.com/p/w78iva/give-your-python-program-a-shell-with-the-cmd-module)
 
 ## Authors:
 * **Walton Lee** [Github](https://github.com/WalLee2) || [Linkedin](https://www.linkedin.com/in/walton-lee-443560a6/)
