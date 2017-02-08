@@ -11,15 +11,30 @@ class Console(cmd.Cmd):
     the user types quit or EOF.
     Avoid execution of the user just presses enter as well.
     """
+    #################
+    # Do Commands ###
+    #################
     def do_quit(self, line):
         return True
 
     def do_EOF(self, line):
         return True
 
-    def do_help(self, line):
+    def emptyline(self):
+        return False
 
-    if __name__ == "__main__":
-        prompt = Console()
-        prompt.prompt = "(hbnb) "
-        Console().cmdloop()
+    #################
+    # Help Functions#
+    #################
+
+    def help_quit(self):
+        print("Quit command to exit the program")
+
+    def help_EOF(self):
+        print("CTL + D (EOF) to exit the program")
+
+if __name__ == "__main__":
+    prompt = Console()
+    prompt.prompt = "(hbnb) "
+    prompt.emptyline
+    prompt.cmdloop()
