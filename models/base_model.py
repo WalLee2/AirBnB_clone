@@ -1,18 +1,21 @@
 #!/usr/bin/python3
-import datetime, uuid
-class BaseModel():
-    def __init__(self, uuid=, name="anomyous"):
-        self.uuid = uuid
-        self.name = "anomyous"
-        self.created_at = "{}".format(datetime.datetime.now().isoformat())
-        self.updated_at = "{}".format(datetime.datetime.now().isoformat())
 
-	@setter.save
+
+from datetime import datetime
+from uuid import uuid4
+import json
+
+class BaseModel():
+    def __init__(self):
+        self.id = str(uuid4())
+        self.created_at = datetime.now().isoformat()
+
     def save(self):
-        self.updated_at = datetime.datetime.now()
+        self.updated_at = datetime.now().isoformat()
+
+    def to_json(self):
+        self.__dict__.update({__class__: self.__class__.__name__})
+        return (self.__dict__)
 
     def __str__(self):
-        return("[{}] {} {}".format(type(self), self.uuid, BaseModel().__dict__))
-
-new = BaseModel()
-print(new)
+        return("[{}] ({}) {}".format(self.__class__.__name__, str(self.id), self.__dict__))
