@@ -1,14 +1,23 @@
 #!/usr/bin/python3
 """
-
+Saving and reloading a file. Converting text to strings
+in the saving process and then converting the strings
+into objects when reloading the file.
 """
 from datetime import datetime
 import json
 from os.path import isfile
 
+
 class FileStorage():
     """
+    all method: Returns the object
 
+    new method: updates the dictionary id
+
+    save method: Serializes, or converts Python objects into JSON strings.
+    reload method: Deserializes, or converts JSON strings
+    into Python objects.
     """
     __objects = {}
     __file_path = "file.json"
