@@ -1,15 +1,21 @@
 #!/usr/bin/python3
 """
-
+Super class that all other objects inherit from.
 """
-
-
 from datetime import datetime, date
 from uuid import uuid4
 
+
 class BaseModel():
     """
+    __init__ method: handles input from other methods that call BaseModel
 
+    save method: Updates the current time with a datetime object and calls
+    FileStorage method to update the dictionary
+
+    to_json method: copies, updates, returns dictionary the key value pairs
+
+    __str__ method: returns class name, id, and a dictionary
     """
     def __init__(self, *args, **kwargs):
         formatt = '%Y-%m-%d %H:%M:%S.%f'
