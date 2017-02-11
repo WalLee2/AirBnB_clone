@@ -88,6 +88,47 @@ class Console(cmd.Cmd):
             if switch == 0:
                 print("** no instance found **")
 
+    def do_all(self, usr_in):
+        _input = usr_in.split()
+        objects = storage.all()
+        for key in objects.keys():
+            if _input:
+                if _input[0] not in class_check:
+                    print("** class doesn't exist **")
+                    break
+                if _input[0] == objects[key].__dict__['__class__']:
+                    print (objects[key])
+            else:
+                print (objects[key])
+
+    def do_update(self, usr_in):
+        _input = usr_in.split()
+        switch = 0
+        switch1 = 0
+        objects = storage.all()
+        if _input[0] not in class_check:
+            print("** class doesn't exist **")
+        elif len(_input) < 2:
+            num_list = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
+            for letter in _input[0]:
+                if letter in num_list:
+                    switch1 = 1
+            if switch1 == 1:
+                print("** class name missing **")
+            else:
+                print("** instance id missing **")
+        elif len(_input) < 3:
+            print("** attribute name missing **")
+        elif len(_input) < 4:
+            print("** value missing **")
+        elif len(_input) == 4:
+            for key in objects.keys():
+                if _input[1] == key:
+                    objects[key].__dict__[_input[2]] = _input[3]
+                else:
+                    objects[key].__dict__ = ({_input[2]: _input[3]})
+                storage.save()
+                storage.reload()
     #################
     # Help Functions#
     #################
@@ -96,7 +137,7 @@ class Console(cmd.Cmd):
         print("Quit command to exit the program")
 
     def help_EOF(self):
-        print("CTL + D (EOF) to exit the program")
+        print("CTRL + D (EOF) to exit the program")
 
 if __name__ == "__main__":
     class_check = ["BaseModel", "User", "State",
