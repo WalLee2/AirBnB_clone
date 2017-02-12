@@ -30,8 +30,8 @@ class BaseModel():
         for arg in args:
             if type(arg) is dict:
                 switch = 1
-                self.created_at = datetime.strptime(arg["created_at"], formatt)
-                self.updated_at = datetime.strptime(arg["updated_at"], formatt)
+                self.created_at = datetime.strptime(arg['created_at'], formatt)
+                self.updated_at = datetime.strptime(arg['updated_at'], formatt)
                 self.__dict__ = arg
         if switch == 0:
             self.created_at = datetime.now()
@@ -54,9 +54,9 @@ class BaseModel():
         Method that updates a copy of a dictionary and returns the copy.
         """
         new = self.__dict__.copy()
-        new.update({"__class__": self.__class__.__name__})
-        new.update({"created_at": str(self.created_at)})
-        new.update({"updated_at": str(self.updated_at)})
+        new.update({'__class__': self.__class__.__name__})
+        new.update({'created_at': str(self.created_at)})
+        new.update({'updated_at': str(self.updated_at)})
         return (new)
 
     def __str__(self):
