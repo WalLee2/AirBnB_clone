@@ -23,12 +23,21 @@ class FileStorage():
     __file_path = "file.json"
 
     def all(self):
+        """
+        Returning the dictionary
+        """
         return FileStorage.__objects
 
     def new(self, obj):
+        """
+        Updating a dictionary
+        """
         self.__objects.update({obj.id: obj})
 
     def save(self):
+        """
+        Updating a dictionary and writing to a file in string format
+        """
         new_cp = {}
         for key in FileStorage.__objects:
             if type(FileStorage.__objects[key]) is not dict:
@@ -41,6 +50,9 @@ class FileStorage():
             json.dump(new_cp, my_file)
 
     def reload(self):
+        """
+        Opening a file in read only mode and converting the text back to objects
+        """
         if isfile(FileStorage.__file_path):
             with open(FileStorage.__file_path, 'r', encoding="UTF-8") as File:
                 FileStorage.__objects = json.load(File)
