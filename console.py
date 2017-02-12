@@ -3,9 +3,14 @@
 Entry point to the command interpreter.
 """
 import cmd
-from models.__init__ import storage
+from models.amenity import Amenity
 from models.base_model import BaseModel
-
+from models.__init__ import storage
+from models.city import City
+from models.place import Place
+from models.review import Review
+from models.state import State
+from models.user import User
 
 class Console(cmd.Cmd):
     """
@@ -16,6 +21,10 @@ class Console(cmd.Cmd):
     #################
     # Do Commands ###
     #################
+
+    intro = "Welcome to hbnb! Type help for more options."
+    prompt = "(hbnb) "
+
     def do_quit(self, line):
         return True
 
@@ -27,14 +36,16 @@ class Console(cmd.Cmd):
 
     def do_create(self, user_input):
         """Creates a new instance and returns the unique id"""
-        input_len = user_input.split()
-        if (input_len):
-            new_model = BaseModel()
-            new_model.save()
-            print(new_model.id)
+        if not user_input:
+            print("** class name missing **")
+        elif user_input in class_check:
+            _input = user_input.split()
+            new_obj = class_check[_input[0]]()
+            new_obj.save()
             storage.reload()
+            print(new_obj.id)
         else:
-            print("Please specify an instance to be created.")
+            print("** class doesn't exist **")
 
     def do_show(self, usr_in):
         """Prints the whole dictionary with the new instance"""
@@ -139,10 +150,23 @@ class Console(cmd.Cmd):
     def help_EOF(self):
         print("CTRL + D (EOF) to exit the program")
 
+    def help_create(self):
+        print("Usage: create <valid class name>")
+
+    def help_show(self):
+        print("Usage: show <valid class name> <valid id>")
+
+    def help_destroy(self):
+        print("Usage: destroy <valid class name> <valid id>")
+
+    def help_all(self):
+        print("Usage: all OR all <valid class name>")
+
+    def help_update(self):
+        print("Usage: update <valid class name>", end="")
+        print("<valid id> <attribute name> <attribute value>")
 if __name__ == "__main__":
-    class_check = ["BaseModel", "User", "State",
-                   "City", "Amenity", "Place", "Review"]
-    prompt = Console()
-    prompt.prompt = "(hbnb) "
-    prompt.emptyline
-    prompt.cmdloop()
+    class_check = {"Amenity": Amenity, "BaseModel": BaseModel,
+                   "City": City, "Place": Place, "Review": Review,
+                   "State": State, "User": User}
+    Console().cmdloop()
