@@ -7,6 +7,7 @@ into objects when reloading the file.
 from datetime import datetime
 import json
 from os.path import isfile
+import models
 
 
 class FileStorage():
@@ -39,11 +40,12 @@ class FileStorage():
         Updating a dictionary and writing to a file in string format
         """
         new_cp = {}
-        for key in FileStorage.__objects:
+        for key in FileStorage.__objects.keys():
             if type(FileStorage.__objects[key]) is not dict:
-                new_cp.update({key: FileStorage.__objects[key].to_json()})
+                my_dict = FileStorage.__objects[key].to_json()
+                new_cp.update({key: my_dict})
             else:
-                new_cp.update({key: FileStorage.__objects[key]})
+                new_cp.update({key: my_dict[key]})
                 new_cp.update({'created_at': str(new_cp[key]['created_at'])})
                 new_cp.update({'updated_at': str(new_cp[key]['updated_at'])})
         with open(FileStorage.__file_path, 'w', encoding="UTF-8") as my_file:
@@ -55,8 +57,25 @@ class FileStorage():
         """
         if isfile(FileStorage.__file_path):
             with open(FileStorage.__file_path, 'r', encoding="UTF-8") as File:
-                FileStorage.__objects = json.load(File)
-                from models.base_model import BaseModel
-                for key in FileStorage.__objects.keys():
-                    new_BM = BaseModel(FileStorage.__objects[key])
-                    FileStorage.__objects.update({key: new_BM})
+                load = json.load(File)
+                for key in load.keys():
+                    c_name = load[key]['__class__']
+                    new_BM = self.__checker(load[key]['__class__'], (load[key]))
+                    load.update({key: new_BM})
+
+    def __checker(self, Class, key):
+        from models.amenity import Amenity
+        from models.base_model import BaseModel
+        from models.city import City
+        from models.place import Place
+        from models.review import Review
+        from models.state import State
+        from models.user import User
+        class_check = {"Amenity": Amenity, "BaseModel": BaseModel,
+                       "City": City, "Place": Place, "Review": Review,
+                       "State": State, "User": User}
+        if Class not in class_check.keys():
+            print("** class doesn't exist **")
+            return None
+        else:
+            return class_check[Class]
