@@ -66,6 +66,9 @@ class FileStorage():
                     load.update({key: new_BM})
 
     def __checker(self, Class, key):
+        """
+        checks if class is valid and returns the result
+        """
         from models.amenity import Amenity
         from models.base_model import BaseModel
         from models.city import City
