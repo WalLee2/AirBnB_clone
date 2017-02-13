@@ -12,6 +12,7 @@ from models.review import Review
 from models.state import State
 from models.user import User
 
+
 class Console(cmd.Cmd):
     """
     Implementing cmd module that quits out of the interpreter when
@@ -108,9 +109,9 @@ class Console(cmd.Cmd):
                     print("** class doesn't exist **")
                     break
                 if _input[0] == objects[key].__dict__['__class__']:
-                    print (objects[key])
+                    print(objects[key])
             else:
-                print (objects[key])
+                print(objects[key])
 
     def do_update(self, usr_in):
         _input = usr_in.split()
