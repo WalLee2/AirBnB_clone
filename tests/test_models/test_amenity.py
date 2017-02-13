@@ -4,7 +4,7 @@ Unit tests for <file>
 Run with: python -m unittest test_module
 """
 import unittest
-
+from models.amenity import Amenity
 
 class TestBaseModel(unittest.TestCase):
     """
