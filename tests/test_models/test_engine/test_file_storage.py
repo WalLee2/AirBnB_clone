@@ -5,8 +5,17 @@ Run with: python -m unittest test_module
 """
 import unittest
 
+
 class GenericTestingMethod(unittest.TestCase):
-    def something():
+    """
+    Generic testing class for a template
+    Functions:
+    something()
+    """
+    def something(self):
+        """
+        Generic Something function
+        """
         self.do_something()
 
 if __name__ == "__main__":
