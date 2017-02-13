@@ -13,7 +13,7 @@ from models.state import State
 from models.user import User
 
 
-class Console(cmd.Cmd):
+class HBNBCommand(cmd.Cmd):
     """
     Implementing cmd module that quits out of the interpreter when
     the user types quit or EOF.
@@ -171,4 +171,4 @@ if __name__ == "__main__":
     class_check = {"Amenity": Amenity, "BaseModel": BaseModel,
                    "City": City, "Place": Place, "Review": Review,
                    "State": State, "User": User}
-    Console().cmdloop()
+    HBNBCommand().cmdloop()
