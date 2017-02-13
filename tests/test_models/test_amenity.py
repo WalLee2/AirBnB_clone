@@ -6,7 +6,7 @@ Run with: python -m unittest test_module
 import unittest
 
 
-class GenericTestingMethod(unittest.TestCase):
+class TestBaseModel(unittest.TestCase):
     """
     Generic testing class for a template
     Functions:
