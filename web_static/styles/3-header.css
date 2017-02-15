@@ -7,6 +7,7 @@ header {
 .logo {
     margin-left: 20px;
     background: url(../images/logo.png)no-repeat;
+    vertical-align: middle;
     width: 142px;
     height: 60px;
 }
