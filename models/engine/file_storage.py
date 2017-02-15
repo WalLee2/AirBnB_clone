@@ -53,17 +53,22 @@ class FileStorage():
 
     def reload(self):
         """
-        Opening a file in read only mode and converting the text back to objects
+        Opening a file in read only mode
+        and converting the text back to objects
         """
         if isfile(FileStorage.__file_path):
             with open(FileStorage.__file_path, 'r', encoding="UTF-8") as File:
                 load = json.load(File)
                 for key in load.keys():
                     c_name = load[key]['__class__']
-                    new_BM = self.__checker(load[key]['__class__'], (load[key]))
+                    new_BM = self.__checker(load[key]['__class__'],
+                                            (load[key]))
                     load.update({key: new_BM})
 
     def __checker(self, Class, key):
+        """
+        checks if class is valid and returns the result
+        """
         from models.amenity import Amenity
         from models.base_model import BaseModel
         from models.city import City

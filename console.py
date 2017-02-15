@@ -12,7 +12,8 @@ from models.review import Review
 from models.state import State
 from models.user import User
 
-class Console(cmd.Cmd):
+
+class HBNBCommand(cmd.Cmd):
     """
     Implementing cmd module that quits out of the interpreter when
     the user types quit or EOF.
@@ -108,9 +109,9 @@ class Console(cmd.Cmd):
                     print("** class doesn't exist **")
                     break
                 if _input[0] == objects[key].__dict__['__class__']:
-                    print (objects[key])
+                    print(objects[key])
             else:
-                print (objects[key])
+                print(objects[key])
 
     def do_update(self, usr_in):
         _input = usr_in.split()
@@ -170,4 +171,4 @@ if __name__ == "__main__":
     class_check = {"Amenity": Amenity, "BaseModel": BaseModel,
                    "City": City, "Place": Place, "Review": Review,
                    "State": State, "User": User}
-    Console().cmdloop()
+    HBNBCommand().cmdloop()
