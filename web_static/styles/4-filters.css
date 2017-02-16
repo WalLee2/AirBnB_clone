@@ -1,10 +1,9 @@
 .container .filters{
-    color: white;
-    height: 50px;
+    color: black;
+    height: 70px;
     width: 100%;
     border: 1px solid #DDDDDD;
-    border-radius: 4px;
-    padding: 10px;
+    position: relative;
 }
 .container .filters button{
     background-color: #FF5A5F;
@@ -14,8 +13,11 @@
     border: 0;
     width: 20%;
     border-radius: 4px;
-    float: right;
+    top: 15%;
     margin-right: 30px;
+    position: relative;
+    margin-top: 0px;
+    float: right;
 }
 .container .filters button:hover{
     opacity: 0.9;
