@@ -1,0 +1,66 @@
+.container{
+    max-width: 1000px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-left: 150px;
+}
+
+.container .filters{
+    color: black;
+    height: 50px;
+    width: 100%;
+    border: 1px solid #DDDDDD;
+    border-radius: 4px;
+    padding: 10px;
+    display: inline-block;
+}
+.container .filters button{
+    background-color: #FF5A5F;
+    color: white;
+    font-size: 18px;
+    height: 48px;
+    border: 0;
+    width: 20%;
+    border-radius: 4px;
+    float: right;
+    margin-right: 30px;
+}
+
+.locations{
+    height: 100%;
+    width: 25%;
+    border-right: 1px solid #DDDDDD;
+    padding: 0;
+    margin-right: 20px;
+    margin-left: 30px;
+    float: left;
+    text-align: left;
+    margin-top: 0;
+    border-top: 0;
+    word-wrap: break-word;
+}
+.amenities{
+    margin-top: 0;
+    border-top: 0;
+    padding: 0;
+    height: 100%;
+    width: 25%;
+    margin-left: 50px;
+    display: inline-block;
+    /*display: flex;
+    align-items: center;
+    word-wrap: break-word;*/
+}
+h3{
+    font-weight: 600;
+    margin-top: 5px;
+    margin-bottom: 0px;
+}
+h4{
+    font-weight: 400;
+    font-size: 14px;
+    margin-top: 5px;
+}
+.container .filters button:hover{
+    opacity: 0.9;
+}
