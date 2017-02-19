@@ -1,9 +1,8 @@
 .container .filters{
-    color: black;
+    background-color: white;
     height: 70px;
     width: 100%;
     border: 1px solid #DDDDDD;
-    position: relative;
 }
 .container .filters button{
     background-color: #FF5A5F;
@@ -13,7 +12,6 @@
     border: 0;
     width: 20%;
     border-radius: 4px;
-    top: 15%;
     margin-right: 30px;
     position: relative;
     margin-top: 0px;
