@@ -1,18 +1,10 @@
-.container{
-    max-width: 1000px;
-    margin-top: 30px;
-    margin-bottom: 30px;
-    margin-left: 150px;
-}
-
 .container .filters{
-    color: black;
-    height: 50px;
+    background-color: white;
+    height: 70px;
     width: 100%;
     border: 1px solid #DDDDDD;
     border-radius: 4px;
-    padding: 10px;
-    display: inline-block;
+    position: relative;
 }
 .container .filters button{
     background-color: #FF5A5F;
@@ -22,6 +14,9 @@
     border: 0;
     width: 20%;
     border-radius: 4px;
+    top: 15%;
+    position: relative;
+    margin-top: 0px;
     float: right;
     margin-right: 30px;
 }
@@ -30,30 +25,24 @@
     height: 100%;
     width: 25%;
     border-right: 1px solid #DDDDDD;
-    padding: 0;
-    margin-right: 20px;
+    margin-right: 10px;
     margin-left: 30px;
     float: left;
     text-align: left;
-    margin-top: 0;
-    border-top: 0;
     word-wrap: break-word;
+    position: absolute;
 }
 .amenities{
-    margin-top: 0;
-    border-top: 0;
-    padding: 0;
     height: 100%;
     width: 25%;
-    margin-left: 50px;
+    margin-left: 280px;
     display: inline-block;
-    /*display: flex;
-    align-items: center;
-    word-wrap: break-word;*/
+    word-wrap: break-word;
+    padding-left: 50px;
 }
 h3{
     font-weight: 600;
-    margin-top: 5px;
+    margin-top: 15px;
     margin-bottom: 0px;
 }
 h4{
