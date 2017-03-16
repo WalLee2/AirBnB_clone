@@ -23,9 +23,6 @@ def do_pack():
 """
 Fabric script that distributes an archive to your web servers
 """
-from fabric.api import run, env, put
-import os
-
 env.hosts = ['52.86.29.108', '54.227.34.170']
 
 
@@ -38,7 +35,6 @@ def do_deploy(archive_path):
         return False
     try:
         target_name = archive_path.strip("versions/")
-
         put(archive_path, "/tmp/")
         mystr_0 = "sudo mkdir -p /data/web_static/releases/" + target_name + \
                   "/"
@@ -53,6 +49,7 @@ def do_deploy(archive_path):
                   "/"
         run(mystr_3)
         mystr_4 = "sudo rm -rf /data/web_static/releases/" + target_name + \
+                  "/web_static"
         run(mystr_4)
         mystr_5 = "sudo rm -rf /data/web_static/current"
         run(mystr_5)
@@ -67,7 +64,6 @@ def do_deploy(archive_path):
 def deploy():
     try:
         archive = do_pack()
-        print (archive)
         value = do_deploy(archive)
         return value
     except:
