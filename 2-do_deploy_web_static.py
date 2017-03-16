@@ -13,10 +13,8 @@ def do_deploy(archive_path):
     Wrapping up the tarball and sending it over to a server and opening it
     and "untarballing" it
     """
-    print(archive_path)
     if not os.path.isfile(archive_path):
         return False
-    print(archive_path)
     try:
         target_name = archive_path.strip("versions/")
 
