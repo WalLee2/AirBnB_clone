@@ -35,7 +35,7 @@ def do_deploy(archive_path):
         mystr_5 = "sudo rm -rf /data/web_static/current"
         run(mystr_5)
         mystr_6 = "sudo ln -s /data/web_static/releases/" + target_name + \
-        "/data/web_static/current"
+        " /data/web_static/current"
         run(mystr_6)
         print("Executing task 'deploy'")
         return True
