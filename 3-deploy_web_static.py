@@ -62,10 +62,11 @@ def do_deploy(archive_path):
     except:
         return False
 
-"""
-Function that tarballs and untarballs files from one server to another
-"""
+
 def deploy():
+    """
+    Function that tarballs and untarballs files from one server to another
+    """
     try:
         archive = do_pack()
         value = do_deploy(archive)
