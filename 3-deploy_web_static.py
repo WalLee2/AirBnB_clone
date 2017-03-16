@@ -34,7 +34,8 @@ def do_deploy(archive_path):
     if not os.path.isfile(archive_path):
         return False
     try:
-        target_name = archive_path.strip("versions/")
+        target_name = archive_path.strip("versions")
+        print (target_name)
         put(archive_path, "/tmp/")
         mystr_0 = "sudo mkdir -p /data/web_static/releases/" + target_name + \
                   "/"
@@ -60,6 +61,7 @@ def do_deploy(archive_path):
         return True
     except:
         return False
+
 
 def deploy():
     try:
