@@ -3,7 +3,8 @@
 Importing the fabric api
 """
 from fabric.api import *
-
+import os
+from datetime import datetime
 
 def do_pack():
     """
@@ -11,7 +12,8 @@ def do_pack():
     """
     try:
         local("sudo mkdir -p versions/")
-        local("sudo tar -czvf \"./versions/web_static `date +%Y-%m-%d-%h-%M-%S`\
-        .tgz\" web_static")
+        date_time = datetime.now().strftime("%Y%m%d%h%M%S")
+        local("sudo tar -czvf \"./versions/web_static_%s.tgz\" web_static" % date_time)
+        return os.path.abspath("versions/")
     except:
         return None
